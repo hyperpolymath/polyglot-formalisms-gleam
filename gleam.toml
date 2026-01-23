@@ -2,6 +2,7 @@ name = "polyglot_formalisms"
 version = "0.2.0"
 description = "Gleam implementation of PolyglotFormalisms Common Library"
 licences = ["PMPL-1.0-or-later"]
+repository = { type = "github", user = "hyperpolymath", repo = "polyglot_formalisms_gleam" }
 
 [dependencies]
 gleam_stdlib = ">= 0.34.0 and < 2.0.0"
