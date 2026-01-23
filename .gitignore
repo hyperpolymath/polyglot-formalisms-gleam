@@ -1,0 +1,7 @@
+build/
+manifest.toml
+*.beam
+*.app
+.eunit
+erl_crash.dump
+ebin/

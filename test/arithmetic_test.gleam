@@ -1,11 +1,6 @@
 // SPDX-License-Identifier: PMPL-1.0-or-later
-import gleeunit
 import gleeunit/should
-import polyglot_formalisms/arithmetic
-
-pub fn main() {
-  gleeunit.main()
-}
+import arithmetic
 
 // Add tests
 pub fn add_positive_test() {

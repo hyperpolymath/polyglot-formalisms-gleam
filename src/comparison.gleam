@@ -27,7 +27,7 @@
 /// less_than(1.5, 2.5)       // Returns True
 /// ```
 pub fn less_than(a: Float, b: Float) -> Bool {
-  a < b
+  a <. b
 }
 
 /// greater_than(a, b) -> Bool
@@ -52,7 +52,7 @@ pub fn less_than(a: Float, b: Float) -> Bool {
 /// greater_than(3.5, 1.2)       // Returns True
 /// ```
 pub fn greater_than(a: Float, b: Float) -> Bool {
-  a > b
+  a >. b
 }
 
 /// equal(a, b) -> Bool
@@ -126,7 +126,7 @@ pub fn not_equal(a: Float, b: Float) -> Bool {
 /// less_equal(1.5, 1.5)       // Returns True
 /// ```
 pub fn less_equal(a: Float, b: Float) -> Bool {
-  a <= b
+  a <=. b
 }
 
 /// greater_equal(a, b) -> Bool
@@ -152,5 +152,5 @@ pub fn less_equal(a: Float, b: Float) -> Bool {
 /// greater_equal(3.5, 3.5)       // Returns True
 /// ```
 pub fn greater_equal(a: Float, b: Float) -> Bool {
-  a >= b
+  a >=. b
 }

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: PMPL-1.0-or-later
 import gleeunit/should
-import polyglot_formalisms/comparison
+import comparison
 
 // Less than tests
 pub fn less_than_true_test() {
