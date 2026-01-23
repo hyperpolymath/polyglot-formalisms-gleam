@@ -1,5 +1,5 @@
 name = "polyglot_formalisms"
-version = "0.2.0"
+version = "0.3.0"
 description = "Gleam implementation of PolyglotFormalisms Common Library"
 licences = ["Apache-2.0"]
 repository = { type = "github", user = "hyperpolymath", repo = "polyglot_formalisms_gleam" }
