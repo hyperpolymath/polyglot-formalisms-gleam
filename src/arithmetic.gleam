@@ -1,17 +1,15 @@
 // SPDX-License-Identifier: PMPL-1.0-or-later
 
-/**
- * Arithmetic Kernel — PolyglotFormalisms Common Library (Gleam).
- *
- * This module implements the arithmetic section of the PolyglotFormalisms 
- * specification for the Gleam language. It ensures consistent numerical 
- * behavior across the BEAM (Erlang) ecosystem.
- *
- * DESIGN PRINCIPLES:
- * - Direct mapping to aggregate-library behavioral semantics.
- * - Documentation of formal mathematical properties (e.g. Identity, Inverse).
- * - Explicit handling of BEAM-specific floating-point edge cases.
- */
+// Arithmetic Kernel — PolyglotFormalisms Common Library (Gleam).
+//
+// This module implements the arithmetic section of the PolyglotFormalisms 
+// specification for the Gleam language. It ensures consistent numerical 
+// behavior across the BEAM (Erlang) ecosystem.
+//
+// DESIGN PRINCIPLES:
+// - Direct mapping to aggregate-library behavioral semantics.
+// - Documentation of formal mathematical properties (e.g. Identity, Inverse).
+// - Explicit handling of BEAM-specific floating-point edge cases.
 
 /// SUMMATION: Computes the arithmetic sum of two floats.
 ///
@@ -28,7 +26,7 @@ pub fn add(a: Float, b: Float) -> Float {
 /// - Zero Element: multiply(a, 0.0) == 0.0
 /// - Distributivity: multiply(a, add(b, c)) == add(multiply(a, b), multiply(a, c))
 pub fn multiply(a: Float, b: Float) -> Float {
-  a *. b
+  a//. b
 }
 
 /// DIVISION: Computes the quotient a / b.

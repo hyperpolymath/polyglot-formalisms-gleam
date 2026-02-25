@@ -1,19 +1,19 @@
 // SPDX-License-Identifier: PMPL-1.0-or-later
 
-/**
- * String Kernel — PolyglotFormalisms Common Library (Gleam).
- *
- * This module implements the string manipulation suite matching the 
- * PolyglotFormalisms specification for the Gleam language. It prioritizes 
- * Unicode-aware grapheme handling and maintains cross-language consistency.
- *
- * DESIGN MANDATE:
- * - **0-Based Indexing**: Uses 0-based indices to match Gleam conventions.
- * - **Grapheme Awareness**: Operations like `length` count perceived 
- *   characters (e.g. emoji) rather than raw bytes.
- * - **Totality**: Returns safe defaults (empty string, -1 index) for 
- *   out-of-bounds requests.
- */
+//
+// String Kernel — PolyglotFormalisms Common Library (Gleam).
+//
+// This module implements the string manipulation suite matching the 
+// PolyglotFormalisms specification for the Gleam language. It prioritizes 
+// Unicode-aware grapheme handling and maintains cross-language consistency.
+//
+// DESIGN MANDATE:
+// -//*0-Based Indexing**: Uses 0-based indices to match Gleam conventions.
+// -//*Grapheme Awareness**: Operations like `length` count perceived 
+//   characters (e.g. emoji) rather than raw bytes.
+// -//*Totality**: Returns safe defaults (empty string, -1 index) for 
+//   out-of-bounds requests.
+//
 
 import gleam/string
 

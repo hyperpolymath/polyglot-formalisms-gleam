@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: PMPL-1.0-or-later
 
-/**
- * Logical Kernel — PolyglotFormalisms Common Library (Gleam).
- *
- * This module implements boolean algebra operations matching the 
- * PolyglotFormalisms specification. It ensures that logical predicates 
- * behave consistently across the Gleam and Idris ecosystems.
- *
- * DESIGN MANDATE:
- * - Direct mapping to Gleam's boolean operators.
- * - Formal documentation of algebraic identities (e.g. Involution).
- * - Verification of De Morgan's Law compliance.
- */
+//
+// Logical Kernel — PolyglotFormalisms Common Library (Gleam).
+//
+// This module implements boolean algebra operations matching the 
+// PolyglotFormalisms specification. It ensures that logical predicates 
+// behave consistently across the Gleam and Idris ecosystems.
+//
+// DESIGN MANDATE:
+// - Direct mapping to Gleam's boolean operators.
+// - Formal documentation of algebraic identities (e.g. Involution).
+// - Verification of De Morgan's Law compliance.
+//
 
 /// CONJUNCTION: Returns True iff both `a` and `b` are True.
 ///

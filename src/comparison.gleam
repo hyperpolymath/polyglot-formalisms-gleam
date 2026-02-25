@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: PMPL-1.0-or-later
 
-/**
- * Comparison Kernel — PolyglotFormalisms Common Library (Gleam).
- *
- * This module implements the formal comparison operations specified in 
- * the common library. It ensures that ordering and equality predicates 
- * behave identically across all ecosystem components.
- *
- * DESIGN PRINCIPLES:
- * - Direct mapping to Gleam's float-specific operators (`<.`, `>.`).
- * - Documentation of formal mathematical properties (e.g. Transitivity).
- * - Explicit handling of boolean inversion for non-equal relations.
- */
+//
+// Comparison Kernel — PolyglotFormalisms Common Library (Gleam).
+//
+// This module implements the formal comparison operations specified in 
+// the common library. It ensures that ordering and equality predicates 
+// behave identically across all ecosystem components.
+//
+// DESIGN PRINCIPLES:
+// - Direct mapping to Gleam's float-specific operators (`<.`, `>.`).
+// - Documentation of formal mathematical properties (e.g. Transitivity).
+// - Explicit handling of boolean inversion for non-equal relations.
+//
 
 /// LESS THAN: Returns True iff `a` is strictly less than `b`.
 ///
