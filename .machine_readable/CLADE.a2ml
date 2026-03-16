@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: PMPL-1.0-or-later
+# Clade declaration — part of the gv-clade-index registry
+# See: https://github.com/hyperpolymath/gv-clade-index
+
+[identity]
+uuid = "2aa7d364-2062-5ee5-8eec-211c2321a286"
+primary-forge = "github"
+primary-owner = "hyperpolymath"
+canonical-name = "polyglot-formalisms-gleam"
+prefixed-name = "fv-polyglot-formalisms-gleam"
+
+[clade]
+primary = "fv"
+secondary = ["dx"]
+assigned = "2026-03-16"
+rationale = ""
+
+[forges]
+github = "hyperpolymath/polyglot-formalisms-gleam"
+gitlab = "hyperpolymath/polyglot-formalisms-gleam"
+bitbucket = "hyperpolymath/polyglot-formalisms-gleam"
+
+[lineage]
+type = "standalone"
+parent = "Formal methods bindings for Gleam"
+born = "2026-03-16"
