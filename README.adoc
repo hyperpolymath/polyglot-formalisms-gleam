@@ -1,5 +1,0 @@
-= polyglot-formalisms-gleam
-:toc: preamble
-:icons: font
-
-
