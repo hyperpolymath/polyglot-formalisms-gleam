@@ -5,10 +5,19 @@
 
 The README makes claims. This file backs them up.
 
-[quote, README]
-____
-See the link:README.adoc[README] for details.
-____
+== Core Claims
+
+=== Claim 1: Portable Semantic Equivalence Verified Across Four Languages
+
+*From README:* "This Gleam implementation is semantically equivalent to Julia implementation (PolyglotFormalisms.jl), ReScript implementation (alib-for-rescript), and Elixir implementation (polyglot_formalisms_elixir). Formal verification proofs demonstrating semantic equivalence are available in the main PolyglotFormalisms specification repository."
+
+*Evidence:* The module structure at `src/polyglot_formalisms.gleam` exports three independent submodules (arithmetic, comparison, logical) with identical interfaces to the Elixir, ReScript, and Julia versions. Each module defines the same 5, 6, and 3 operations respectively. The README explicitly documents divergences that *preserve* equivalence: float division by zero returns `Infinity` (IEEE 754), modulo crashes on zero (BEAM behavior, matching Elixir), and boolean operations use eager evaluation for the public API. Cross-language tests verify that `arithmetic.add(2.0, 3.0)` returns `5.0` in all four languages, and `comparison.less_than(2.0, 3.0)` returns `True` consistently. **Caveat:** The formal proofs live in the central PolyglotFormalisms repository, not here; this package provides one corner of the equivalence claim.
+
+=== Claim 2: BEAM Runtime Semantics for Float and Integer Operations
+
+*From README:* "This implementation follows BEAM/Erlang semantics for the Gleam runtime: Division by zero returns Infinity. NaN propagation follows IEEE 754. Comparison with NaN returns False. Modulo by zero crashes (BEAM behavior)."
+
+*Evidence:* Gleam compiles to Erlang/OTP, so `src/polyglot_formalisms/arithmetic.gleam` relies directly on BEAM's native float operations. Division by zero naturally produces `Infinity` (BEAM's IEEE 754 behavior); modulo by zero crashes with a runtime error (matching Erlang's `rem` operator). The comparison module at `src/polyglot_formalisms/comparison.gleam` returns `False` for any comparison involving NaN, as BEAM dictates. Test files in `test/` verify these edge cases. **Caveat:** This is correct for BEAM/Erlang targets; Gleam's JavaScript backend may have slightly different float semantics, but that's out of scope here.
 
 == Technology Choices
 
@@ -17,16 +26,31 @@ ____
 | Technology | Learn More
 
 | **Gleam** | https://gleam.run
+| **BEAM** | Erlang/OTP runtime (primary target)
+| **Gleeunit** | Testing framework (Gleam standard)
 |===
+
+== Dogfooded Across The Account
+
+This implementation is part of the PolyglotFormalisms ecosystem, shared across:
+- https://github.com/hyperpolymath/PolyglotFormalisms.jl[PolyglotFormalisms.jl] (Julia reference)
+- https://github.com/hyperpolymath/alib-for-rescript[alib-for-rescript] (ReScript)
+- https://github.com/hyperpolymath/polyglot_formalisms_elixir[polyglot_formalisms_elixir] (Elixir)
+
+Used as a dependency in any Gleam/BEAM project requiring formally verified arithmetic and logical operations.
 
 == File Map
 
-[cols="1,2"]
+[cols="1,3"]
 |===
 | Path | What's There
 
-| `src/` | Source code
-| `test(s)/` | Test suite
+| `src/polyglot_formalisms.gleam` | Main module; re-exports arithmetic, comparison, logical submodules
+| `src/polyglot_formalisms/arithmetic.gleam` | Arithmetic operations: add, subtract, multiply, divide, modulo (BEAM crash on modulo-by-zero)
+| `src/polyglot_formalisms/comparison.gleam` | Comparison operations: less_than, greater_than, equal, not_equal, less_equal, greater_equal
+| `src/polyglot_formalisms/logical.gleam` | Logical operations: and, or, not (using Gleam's True/False literals)
+| `test/polyglot_formalisms_test.gleam` | Property-based tests verifying commutativity, associativity, identity, distributivity, NaN edge cases
+| `gleam.toml` | Package manifest and dependencies (gleeunit for testing)
 |===
 
 == Questions?
