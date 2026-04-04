@@ -26,7 +26,16 @@ pub fn add(a: Float, b: Float) -> Float {
 /// - Zero Element: multiply(a, 0.0) == 0.0
 /// - Distributivity: multiply(a, add(b, c)) == add(multiply(a, b), multiply(a, c))
 pub fn multiply(a: Float, b: Float) -> Float {
-  a//. b
+  a *. b
+}
+
+/// SUBTRACTION: Computes the arithmetic difference of two floats.
+///
+/// PROPERTIES:
+/// - Anti-commutativity: subtract(a, b) == negate(subtract(b, a))
+/// - Identity: subtract(a, 0.0) == a
+pub fn subtract(a: Float, b: Float) -> Float {
+  a -. b
 }
 
 /// DIVISION: Computes the quotient a / b.

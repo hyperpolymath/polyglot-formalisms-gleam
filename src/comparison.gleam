@@ -38,3 +38,29 @@ pub fn equal(a: Float, b: Float) -> Bool {
 pub fn less_equal(a: Float, b: Float) -> Bool {
   a <=. b
 }
+
+/// GREATER THAN: Returns True iff `a` is strictly greater than `b`.
+///
+/// PROPERTIES:
+/// - Dual of less_than: greater_than(a, b) == less_than(b, a)
+/// - Irreflexive: greater_than(a, a) == False
+pub fn greater_than(a: Float, b: Float) -> Bool {
+  a >. b
+}
+
+/// GREATER THAN OR EQUAL: Returns True iff `a > b` or `a == b`.
+///
+/// PROPERTIES:
+/// - Dual of less_equal: greater_equal(a, b) == less_equal(b, a)
+pub fn greater_equal(a: Float, b: Float) -> Bool {
+  a >=. b
+}
+
+/// NOT EQUAL: Returns True iff `a` and `b` are distinct.
+///
+/// PROPERTIES:
+/// - Symmetric: not_equal(a, b) == not_equal(b, a)
+/// - Negation: not_equal(a, b) == !equal(a, b)
+pub fn not_equal(a: Float, b: Float) -> Bool {
+  a != b
+}

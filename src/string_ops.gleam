@@ -39,7 +39,68 @@ pub fn substring(s: String, start: Int, end_pos: Int) -> String {
   }
 }
 
-// ... [Remaining string operations: index_of, contains, starts_with, etc.]
+/// EMPTY CHECK: Returns True iff `s` has zero graphemes.
 pub fn is_empty(s: String) -> Bool {
   string.is_empty(s)
+}
+
+/// TRIM: Removes leading and trailing whitespace from `s`.
+pub fn trim(s: String) -> String {
+  string.trim(s)
+}
+
+/// SPLIT: Splits `s` on every occurrence of `separator`.
+///
+/// PROPERTIES:
+/// - join(split(s, sep), sep) == s (round-trip)
+pub fn split(s: String, separator: String) -> List(String) {
+  string.split(s, separator)
+}
+
+/// JOIN: Concatenates a list of strings with `separator` between each.
+pub fn join(parts: List(String), separator: String) -> String {
+  string.join(parts, separator)
+}
+
+/// REPLACE: Replaces every occurrence of `pattern` in `s` with `replacement`.
+pub fn replace(s: String, pattern: String, replacement: String) -> String {
+  string.replace(s, each: pattern, with: replacement)
+}
+
+/// CONTAINS: Returns True iff `s` contains `substring_str` as a sub-sequence.
+pub fn contains(s: String, substring_str: String) -> Bool {
+  string.contains(s, substring_str)
+}
+
+/// STARTS WITH: Returns True iff `s` begins with `prefix`.
+pub fn starts_with(s: String, prefix: String) -> Bool {
+  string.starts_with(s, prefix)
+}
+
+/// ENDS WITH: Returns True iff `s` ends with `suffix`.
+pub fn ends_with(s: String, suffix: String) -> Bool {
+  string.ends_with(s, suffix)
+}
+
+/// TO UPPERCASE: Converts all alphabetic characters in `s` to uppercase.
+pub fn to_uppercase(s: String) -> String {
+  string.uppercase(s)
+}
+
+/// TO LOWERCASE: Converts all alphabetic characters in `s` to lowercase.
+pub fn to_lowercase(s: String) -> String {
+  string.lowercase(s)
+}
+
+/// INDEX OF: Returns the 0-based index of the first occurrence of `substring_str`,
+/// or -1 if not found. Empty substring always returns 0.
+pub fn index_of(s: String, substring_str: String) -> Int {
+  case substring_str {
+    "" -> 0
+    _ ->
+      case string.split_once(s, substring_str) {
+        Ok(#(before, _)) -> string.length(before)
+        Error(_) -> -1
+      }
+  }
 }
