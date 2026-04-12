@@ -1,0 +1,137 @@
+// SPDX-License-Identifier: PMPL-1.0-or-later
+// SPDX-FileCopyrightText: 2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
+
+= PolyglotFormalisms.gleam
+:toc: preamble
+:icons: font
+
+Gleam implementation of the PolyglotFormalisms Common Library specification.
+
+== Overview
+
+This package provides Gleam implementations of fundamental operations defined
+in the PolyglotFormalisms specification, enabling semantic equivalence
+verification across multiple programming languages.
+
+== Modules
+
+=== Arithmetic
+
+* `add(a, b)` — Addition
+* `subtract(a, b)` — Subtraction
+* `multiply(a, b)` — Multiplication
+* `divide(a, b)` — Division
+* `modulo(a, b)` — Modulo (integer operation)
+
+=== Comparison
+
+* `less_than(a, b)` — Strict less than
+* `greater_than(a, b)` — Strict greater than
+* `equal(a, b)` — Equality
+* `not_equal(a, b)` — Inequality
+* `less_equal(a, b)` — Less than or equal
+* `greater_equal(a, b)` — Greater than or equal
+
+=== Logical
+
+* `and(a, b)` — Logical conjunction
+* `or(a, b)` — Logical disjunction
+* `not(a)` — Logical negation
+
+== Installation
+
+[source,toml]
+----
+[dependencies]
+polyglot_formalisms = ">= 0.2.0 and < 1.0.0"
+----
+
+== Usage
+
+[source,gleam]
+----
+import polyglot_formalisms/arithmetic
+import polyglot_formalisms/comparison
+import polyglot_formalisms/logical
+
+pub fn main() {
+  let sum = arithmetic.add(2.0, 3.0)
+  let product = arithmetic.multiply(4.0, 5.0)
+  let is_less = comparison.less_than(2.0, 3.0)
+  let is_equal = comparison.equal(5.0, 5.0)
+  let both_true = logical.and(True, True)
+  let either_true = logical.or(False, True)
+  let negated = logical.not(False)
+}
+----
+
+== Mathematical Properties
+
+=== Arithmetic Properties
+
+* Commutativity (for add, multiply)
+* Associativity (for add, multiply)
+* Identity elements
+* Distributivity
+
+=== Comparison Properties
+
+* Transitivity
+* Reflexivity
+* Symmetry
+* Asymmetry
+
+=== Logical Properties
+
+* Commutativity
+* Associativity
+* Distributivity
+* De Morgan's laws
+* Excluded middle
+* Non-contradiction
+
+== Behavioral Semantics
+
+=== Float Operations
+
+* Division by zero returns `Infinity`
+* NaN propagation follows IEEE 754
+* Comparison with NaN returns `False`
+
+=== Integer Operations
+
+* Modulo uses Erlang `rem` operator semantics
+* Modulo by zero crashes (BEAM behavior)
+
+=== Boolean Operations
+
+* Short-circuit evaluation for `and` and `or`
+* Eager evaluation for wrapper functions
+
+== Cross-Language Verification
+
+This Gleam implementation is semantically equivalent to:
+
+* Julia implementation (PolyglotFormalisms.jl)
+* ReScript implementation (alib-for-rescript)
+* Elixir implementation (polyglot_formalisms_elixir)
+
+Formal verification proofs demonstrating semantic equivalence are available in
+the main PolyglotFormalisms specification repository.
+
+== Architecture
+
+See link:TOPOLOGY.md[TOPOLOGY.md] for a visual architecture map and completion dashboard.
+
+== Related Projects
+
+* https://github.com/hyperpolymath/PolyglotFormalisms.jl[PolyglotFormalisms.jl] — Julia reference implementation
+* https://github.com/hyperpolymath/alib-for-rescript[alib-for-rescript] — ReScript implementation
+* https://github.com/hyperpolymath/polyglot_formalisms_elixir[polyglot_formalisms_elixir] — Elixir implementation
+
+Wondering how this works? See link:EXPLAINME.adoc[].
+
+== License
+
+SPDX-License-Identifier: PMPL-1.0-or-later +
+See link:LICENSE[LICENSE].
