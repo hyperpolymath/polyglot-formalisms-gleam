@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: PMPL-1.0-or-later
+// SPDX-License-Identifier: MPL-2.0
 // Template: QUICKSTART-USER.adoc — 5-minute path to working software
 // Replace polyglot-formalisms-gleam, Polyglot Formalisms Gleam — See README.adoc for details., just run, Polyglot Formalisms Gleam started successfully. with actuals
 = polyglot-formalisms-gleam — Quick Start for Users
